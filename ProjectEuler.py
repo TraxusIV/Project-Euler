@@ -75,13 +75,30 @@ class Euler3(object):
         b2 = (a * a) - n
         while not self.isSquare(b2):
             a = a + 1
-            b2 = a * a - n
-        return int(number / (a - sqrt(b2)))
+            b2 = (a * a) - n
+        return int(a - sqrt(b2))
             
+class Euler4(object):
+    """
+    Find the largest palindrome made from the product of two 3-digit numbers.
+    """
+    def __init__(self, digits):
+        self.digits = digits
+        limitList = ([9] * digits)
+        self.limit = 1000 
+    
+    def solve(self):
+        products = []
+        palindromes = []
+        for i in range(1000):
+            for x in range(1000):
+                products.append(i * x)
+        for j in products:
+            if str(j) == str(str(j)[::-1]):
+                palindromes.append(j)
+        return max(palindromes)
+                
         
-x = Euler3(600851475143)
-# x = Euler3(3576576)
-
-print 'hi'
-print x.Fermat(x.composite)
-print x.solve(29)
+x = Euler4(3)
+print x.limit    
+print x.solve()
